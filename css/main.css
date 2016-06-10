@@ -1,0 +1,35 @@
+::selection {
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+}
+::-moz-selection {
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+}
+
+html {
+	font-size: 10px;
+}
+body {
+	font: 1.6rem Arial, sans-serif;
+	background: #fff;
+	color: #000;
+	line-height: 1.5;
+}
+
+a {
+	outline: none;
+	color: inherit;
+	text-decoration: underline;
+}
+a:focus,
+a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+a:active {
+
+}
+a:visited {
+	
+}
