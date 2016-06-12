@@ -1,0 +1,38 @@
+{
+  "name": "j-tap.github.io",
+  "version": "1.0.0",
+  "description": "portfolio j-tap",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "font-awesome": "latest",
+    "slick-carousel": "latest",
+    "bootstrap-sass": "latest"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-tap/j-tap.github.io.git"
+  },
+  "author": "j-tap",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/j-tap/j-tap.github.io/issues"
+  },
+  "homepage": "https://github.com/j-tap/j-tap.github.io#readme",
+  "devDependencies": {
+    "gulp-uglify": "latest",
+    "node-font-awesome": "latest",
+    "gulp-concat": "latest",
+    "gulp-uncss": "latest",
+    "gulp-notify": "latest",
+    "rimraf": "latest",
+    "gulp-sourcemaps": "latest",
+    "imagemin-pngquant": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-sass": "latest",
+    "gulp-rigger": "latest"
+  }
+}
