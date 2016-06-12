@@ -1,0 +1,70 @@
+@import 'bootstrap'
+@import 'font-awesome'
+
+$f-fam: 'Jura', sans-serif;
+$f-col: #333;
+
+::selection 
+	background: rgba(#000, 0.5)
+	color: #fff
+
+::-moz-selection 
+	background: rgba(#000, 0.5)
+	color: #fff
+
+
+html 
+	font-size: 10px
+
+body 
+	font: 1.6rem $f-fam
+	background: #fff
+	color: $f-col
+	line-height: 1.5
+
+a 
+	outline: none
+	color: inherit
+	text-decoration: underline
+
+a:focus,
+a:hover 
+	text-decoration: none
+	color: inherit
+	
+.slider-main
+	background: url("notebook-img.png")
+
+
+.message 
+	padding: 5px
+	border: 1px solid #ccc
+	padding: 10px
+	color: #333
+	border-radius: 4px 
+	box-shadow: 0 0 10px 0 rgba(#000, .5)
+
+.message-success 
+	@extend .message
+	border-color: green
+
+.message-error 
+	@extend .message
+	border-color: red
+
+.header
+
+.header-logo
+
+.header-contact
+	text-align: right 
+	a
+		text-decoration: none
+		font-size: 2rem 
+		&:after
+			content: ''
+			display: block 
+		.fa
+			margin-right: 5px  
+
+
