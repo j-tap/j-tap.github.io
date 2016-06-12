@@ -4,9 +4,9 @@
   "description": "portfolio j-tap",
   "main": "gulpfile.js",
   "dependencies": {
-    "font-awesome": "latest",
-    "slick-carousel": "latest",
-    "bootstrap-sass": "latest"
+    "bootstrap-sass": "^3.3.6",
+    "font-awesome": "^4.6.3",
+    "slick-carousel": "latest"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,17 +22,18 @@
   },
   "homepage": "https://github.com/j-tap/j-tap.github.io#readme",
   "devDependencies": {
-    "gulp-uglify": "latest",
-    "node-font-awesome": "latest",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "latest",
-    "gulp-uncss": "latest",
-    "gulp-notify": "latest",
-    "rimraf": "latest",
-    "gulp-sourcemaps": "latest",
-    "imagemin-pngquant": "latest",
+    "gulp-image-resize": "^0.8.0",
     "gulp-imagemin": "latest",
-    "gulp-autoprefixer": "latest",
+    "gulp-notify": "latest",
+    "gulp-rigger": "latest",
     "gulp-sass": "latest",
-    "gulp-rigger": "latest"
+    "gulp-sourcemaps": "latest",
+    "gulp-uglify": "latest",
+    "gulp-uncss": "latest",
+    "imagemin-pngquant": "latest",
+    "node-font-awesome": "latest",
+    "rimraf": "latest"
   }
 }
