@@ -76,7 +76,6 @@ button
 	border-color: green
 
 .message-error 
-	@extend .message
 	border-color: red
 
 /* HEADER */
@@ -113,7 +112,7 @@ button
 	a 
 		position: absolute
 		top: 60px
-		animation-delay: 2s
+		animation-delay: 1s
 		animation-duration: 1s
 		animation-fill-mode: forwards
 		animation-iteration-count: 1
@@ -133,7 +132,6 @@ button
 	overflow: hidden 
 	border: 4px solid #fff 
 	background: #FFF 
-	cursor: pointer
 	img 
 		width: 100% 
 		border-radius: 50% 
@@ -226,25 +224,39 @@ button
 
 .project-img
 	display: block 
+	transition: opacity 200ms ease-in	
+	opacity: .8 
 	img
-		transition: opacity 200ms ease-in	
-		opacity: .8 
-	&:hover,
-	&:focus
-		img
-			opacity: 1
+		width: 100% 
+		
 
-.project-descr
+.project-title
+	position: absolute 
+	top: 0
+	left: 0
+	width: 100%   
 	text-align: center
+	text-decoration: none 
 	font-size: 1.8rem
-	margin-top: 10px    
+	font-family: 'Jura', sans-serif 
+	opacity: 0 
+	padding: 15px 30px 60px 
+	background: linear-gradient(to bottom, rgba(#fff, 1) 0%, rgba(#fff, .85) 50%, rgba(#fff, 0) 100%)
+	transition: all 500ms linear
+	b
+		font-size: 2rem 	
+.project-item 
+	&:hover, &focus
+		.project-title  
+			opacity: 1 
+		.project-img
+			opacity: 1
 	
 
 .footer
 	text-align: center
 	font-size: 1.3rem 
 	padding: 15px 0 
-
 
 
 @keyframes animHeader 
@@ -266,11 +278,22 @@ button
 	100% 
 		right: -130px
 		
+		
+/* MEDIA QUERY */
+
 @media (max-width: 767px) 
 	html 
 		font-size: 9px
 	body
 		line-height: 1.2 
+	
+	.project-title
+		opacity: 1 
+	.project-item 
+		.project-img
+			img 
+				opacity: 1 
+		
 @media (max-width: 479px) 
 	.header-contact
 		a

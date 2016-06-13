@@ -25,9 +25,15 @@ var gulp = require('gulp'),
 			html: 'dev/*.html', // Синтаксис dev/*.html говорит gulp что мы хотим взять все файлы с расширением .html
 			js: 'dev/js/main.js', // В стилях и скриптах нам понадобятся только main файлы
 			style: 'dev/style/**/*.sass',
-			img: 'dev/img/**/*.*', // Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
-			image: 'dev/image/**/*.*',
-			fonts: 'dev/fonts/**/*.*',
+			img: [
+				'dev/img/**/*.png',
+				'dev/img/**/*.jpg',
+			],
+			image: [
+				'dev/image/**/*.jpg',
+				'dev/image/**/*.png'
+			],
+			fonts: 'dev/fonts/**/*.*',  // Синтаксис /**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
 			bootstrap: {
 				sass: 'node_modules/bootstrap-sass/assets/stylesheets/',
 				js: 'node_modules/bootstrap-sass/assets/javascripts/',
@@ -48,6 +54,7 @@ var gulp = require('gulp'),
 			js: 'dev/js/**/*.js',
 			style: 'dev/style/**/*.sass',
 			img: 'dev/img/**/*.*',
+			image: 'dev/image/**/*.*',
 			fonts: 'dev/fonts/**/*.*'
 		},
 		clean: './build'
