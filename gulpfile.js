@@ -10,6 +10,7 @@ var gulp = require('gulp'),
 	uncss = require('gulp-uncss'), // проверка css на дубли и не задействованые стили
 	concat = require('gulp-concat'), // объединение
 	uglify = require('gulp-uglify'), // минификация js
+	strip = require('gulp-strip-comments'), // удаление комментов
 	fontawesome = require('node-font-awesome'),
 
 	path = {
@@ -72,8 +73,9 @@ gulp.task('build', [
 
 gulp.task('html:build', function () {
 	gulp.src(path.dev.html) //Выберем файлы по нужному пути
-		.pipe(rigger()) //Прогоним через rigger
-		.pipe(gulp.dest(path.build.html)) //Выплюнем их в папку build
+		//.pipe(rigger()) //Прогоним через rigger
+		.pipe(strip())
+		.pipe(gulp.dest(path.build.html)) //Выплюнем их в build
 		//.pipe(reload({stream: true})) //И перезагрузим наш сервер для обновлений
 		//.pipe(notify('HTML succes'))
 });

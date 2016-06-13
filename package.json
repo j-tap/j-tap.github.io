@@ -30,6 +30,7 @@
     "gulp-rigger": "latest",
     "gulp-sass": "latest",
     "gulp-sourcemaps": "latest",
+    "gulp-strip-comments": "^2.4.3",
     "gulp-uglify": "latest",
     "gulp-uncss": "latest",
     "imagemin-pngquant": "latest",
