@@ -1,0 +1,454 @@
+
+/* Common pack styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+/* Block 1
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.info_block1 .image {
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.info_block1 .image .open,
+.info_block1 .image .close {
+    display: block;
+    position: absolute;
+    color: #145c9c;
+    font-size: 1.2rem;
+    font-family: Roboto Condensed;
+    text-decoration: none;
+    background: url(../images/open_arrow_dark.png) 50% 30% no-repeat;
+    padding-top: 5rem; 
+    background-size: 2.2rem auto;
+    top: 0;
+    left: -8rem;
+}
+
+.info_block1 .image .close {
+    display: none;
+   background: url(../images/close_arrow_dark.png) 50% 30% no-repeat; 
+   background-size: 2.2rem auto;
+}
+
+@media (max-width: 550px) {
+
+    .info_block1 .image .open,
+    .info_block1 .image .close {
+        display: none !important;
+    }
+
+    .info_block1 .image img {
+        margin: 2.5rem 1.5rem;
+        float: center !important;
+    }
+
+}
+
+@media screen and (min-width: 550px) and (max-width: 900px) {
+    .info_block1 .image .open { top: -3.5rem; left: -1rem; }
+}
+
+/* Block 2
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+.info_block2 {
+    background: #145c9c;
+    padding: 5rem 0 10rem;
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 300;
+    font-family: Roboto;
+    position: relative;
+    z-index: 5;
+}
+.info_block2 .info {
+    width: 100%;
+    padding-left: 5%;
+}
+.info_block2 .info li {
+    list-style-type: none;
+    position: relative;
+    margin-top: 3rem;
+    padding-left: 3rem;
+}
+.info_block2 .info li:before{
+    display: block;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 17px;
+    left: 3px;
+    content: '';
+}
+.info_block2 .image {
+    position: relative;
+    float: right;
+    width: 97%;    
+}
+.info_block1 .image .small-pic,
+.info_block2 .image .small-pic { 
+    display: none;
+}
+.info_block2 .image .open,
+.info_block2 .image .close {
+    position: absolute;
+    top: 0;
+    left: -55px;
+    color: #fff;
+    font-size: 1.6rem;
+    font-family: Roboto Condensed;
+    text-decoration: none;
+    padding-top: 60px;
+    background: url(../images/open_arrow_light.png) 50% 0 no-repeat;
+}
+
+.info_block2 .image .close {
+    display: none;
+    background: url(../images/close_arrow_light.png) 50% 0 no-repeat;
+}
+
+
+
+
+@media (max-width: 550px) {
+
+    .info_block1 .image .small-pic {
+        display: block;
+        margin: 5rem auto;
+        max-width: 50%;
+    }
+
+
+    .info_block2 .info,
+    .info_block2 .image {
+        width: 100%;
+        margin: 0 !important;
+    }
+
+    .info_block2 .image {
+        background: none !important;
+    }
+    .info_block2 .image .open { 
+        display: none;
+    }
+
+    .info_block2 .image .small-pic {
+        display: block;
+        margin: 0 auto;
+        max-width: 80%;
+    }
+
+}
+
+#e22 {
+    position: absolute;
+    right: 0px;
+}
+
+@media (max-width: 550px) {
+    #e22 {
+       position: relative;
+       right: auto;
+       float: left;
+       padding-top: 5rem;
+    }
+}
+
+/* Animation
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.sprite-series {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    background-repeat: no-repeat;
+    background-position: 0 0; /* !important;*/
+}
+
+.frames-25 {
+    background-size: 2500% !important;
+}
+
+.frames-30 {
+    background-size: 3000% !important;
+}
+
+
+/* Demi Blue - Pack 1
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media screen and (max-width: 550px) {
+    .sprite_demi_blue1 { display: none; }
+}
+
+@media screen and (min-width: 700px) {
+    .info_block1 .image.demi_blue1 { width: 85%; }
+}
+@media screen and (min-width: 800px) {
+    .info_block1 .image.demi_blue1 { width: 75%; }
+}
+@media screen and (min-width: 900px) {
+    .info_block1 .image.demi_blue1 { width: 65%; }
+}
+@media screen and (min-width: 1000px) {
+    .info_block1 .image.demi_blue1 { width: 55%; margin-top: -4rem; }
+}
+@media screen and (min-width: 1300px) {
+    .info_block1 .image.demi_blue1 { width: 50%; margin-top: -2rem; }
+}
+@media screen and (min-width: 1300px) {
+    .info_block1 .image.demi_blue1 { width: 39%; margin-top: -4rem; }
+}
+
+
+/* Demi Blue - Pack 2
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.sprite_demi_blue2 {
+    top: -5rem !important;
+}
+
+@media screen and (max-width: 550px) {
+    .sprite-series { display: none; }
+}
+@media screen and (min-width: 550px) and (max-width: 750px) {
+    #e22 { width: 56%; right: -5rem; }
+    .sprite_demi_blue2 { top: -6rem !important; }
+}
+@media screen and (min-width: 750px) and (max-width: 1000px) {
+    /*#e22 { width: 60%; right: -10rem; }*/
+    .sprite_demi_blue2 { top: -3rem !important; }
+}
+@media screen and (min-width: 1000px) {
+    #e22 { max-width: 50%; }
+    .sprite_demi_blue2 { top: -8rem !important; }
+}
+@media screen and (min-width: 1200px) {
+    #e22 { max-width: 45%; }
+    .sprite_demi_blue2 { top: -12rem !important;}}
+@media screen and (min-width: 1350px) {
+    #e22 { max-width: 45%; }
+    .sprite_demi_blue2 { top: -14rem !important;}
+}
+@media screen and (min-width: 1500px) {
+    #e22 { max-width: 40%; }
+    .sprite_demi_blue2 { top: -15rem !important; }
+}
+@media screen and (min-width: 1700px) {
+    #e22 { max-width: 30%; }
+    .sprite_demi_blue2 { top: -10rem !important; }
+}
+@media screen and (min-width: 1800px) {
+    #e22 { max-width: 35%; }
+    .sprite_demi_blue2 { top: -17rem !important; }
+}
+
+/* Packs images & proportions
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.sprite_demi_blue1 {
+    /*width: 279px;*/
+    /*height: 533px;*/
+    background-image: url(../images/sprites/demi_blue1.png);
+    padding-top: 191%;
+}
+
+.sprite_demi_blue2 {
+    /*width: 727px;*/
+    /*height: 644px;*/
+    background-image: url(../images/sprites/demi_blue2.png);
+    padding-top: 88.583%;
+}
+/*
+.sprite_demi_blue2.article-pack {
+    background-image: url(../images/sprites/pack-animation.jpg);
+    padding-top: 88.583%;
+    width:756px;
+}
+*/
+
+
+/* Expert article pack */
+
+.article-pack2  {
+    background-image: url(../images/sprites/pack-animation.jpg);
+    background-repeat: no-repeat;
+    width:520px;
+    height: 550px;
+    margin-left:10%;
+    margin-top:1%;
+}
+
+
+.article-pack-pull-container {
+    position: absolute;
+    left:55%;
+    top:50%;
+    width:300px;
+    height: 50px;
+    margin-top:-50px;
+}
+
+
+@media screen and (min-width:550px) and (max-width: 1280px)  {
+    .article-pack-pull-container {width:200px; left:75%;}
+}
+
+@media screen and (max-width: 1060px)  { 
+    .article-pack-pull-container {width:260px; left:40%;}
+}
+
+@media screen and (max-width: 550px)  { 
+    .article-pack-pull-container {
+        width:140px;
+        margin-top:0;
+        left:38%;
+    }
+}
+
+.article-pack-pull-container .inner {width:500px;}
+
+.article-pack-pull-container .jspHorizontalBar {
+    background: transparent;
+    height: 31px;
+}
+
+.article-pack-pull-container .jspHorizontalBar .jspTrack {background: transparent;}
+
+.article-pack-pull-container .jspDrag {
+    position: relative;
+    background:url('../images/icon_pull-arrow.png') no-repeat 50px 0px;
+    width:73px;
+    height: 30px;
+    padding-left:80px;
+    font-weight: 400;
+    font-family: Roboto;
+    line-height: 31px;
+    cursor: grab!important;
+    cursor: -webkit-grab!important;
+}
+
+.article-pack-pull-container .jspDrag.on {
+    cursor: grabbing!important;
+    cursor: -webkit-grabbing!important;
+}
+
+.article-pack-pull-container .jspDrag.back {
+    background-position: 50px -32px;
+}
+
+.article-pack-pull-container .jspDrag:before {
+    position: absolute;
+    left:7px;
+    top:-1px;
+    content:'';
+    display: block;
+    height: 31px;
+    width:34px;
+    background: url('../images/icon_pull-tail.png') no-repeat 0 0;
+}
+
+.article-pack-pull-container .jspDrag:after,
+.article-pack-pull-container .jspDrag.nozoom:hover:after,
+.article-pack-pull-container .jspDrag.on:hover:after {
+    position: absolute;
+    top:-1px;
+    right:0px;
+    content:'';
+    display: block;
+    width:31px;
+    height: 31px;
+    border:2px solid #2D6CA5;
+    border-radius: 30px;
+    transition: all .2s ease-in-out;
+}
+
+.article-pack-pull-container .jspDrag:hover:after {
+    top:-6px;
+    right:-5px;
+    width:41px;
+    height: 41px; 
+}
+
+
+
+.article-pack-pull-container .jspDrag span {
+    color:#1f67a7; 
+    padding-left:5px;
+    transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+   opacity: 1;
+}
+
+.article-pack-pull-container .jspDrag:hover span,
+.article-pack-pull-container .jspDrag span.hide {opacity: 0}
+
+
+
+.sprite_demi_silver1 {
+    /*width: 268px;*/
+    /*height: 512px;*/
+    background-image: url(../images/sprites/demi_silver1.png);
+    padding-top: 191.04%
+}
+
+.sprite_demi_silver2 {
+    /*width: 712px;*/
+    /*height: 593px;*/
+    background-image: url(../images/sprites/demi_silver2.png);
+    padding-top: 83.287%;
+}
+
+.sprite_ks1 {
+    /*width: 275px;*/
+    /*height: 481px;*/
+    background-image: url(../images/sprites/KS1.png);
+    padding-top: 174.91%;
+}
+
+.sprite_ks2 {
+    /*width: 754px;*/
+    /*height: 588px;*/
+    background-image: url(../images/sprites/KS2.png);
+    padding-top: 77.984%;
+}
+
+.sprite_ss1 {
+    /*width: 282px;*/
+    /*height: 525px;*/
+    background-image: url(../images/sprites/SS1.png);
+    padding-top: 186.17%;
+}
+
+.sprite_ss2 {
+    /*width: 884px;*/
+    /*height: 482px;*/
+    background-image: url(../images/sprites/SS2.png);
+    padding-top: 54.525%;
+}
+
+.sprite_nano1 {
+    /*width: 300px;*/
+    /*height: 484px;*/
+    background-image: url(../images/sprites/nano1.png);
+    padding-top: 161.33%;
+}
+
+.sprite_nano2 {
+    /*width: 884px;*/
+    /*height: 636px;*/
+    background-image: url(../images/sprites/nano2.png);
+    padding-top: 71.946%;
+}
