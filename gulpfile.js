@@ -14,12 +14,12 @@ var gulp = require('gulp'),
 
 	path = {
 		build: {
-			html: 'build/',
-			js: 'build/js/',
-			css: 'build/css/',
-			img: 'build/img/',
-			image: 'build/image/',
-			fonts: 'build/fonts/'
+			html: '.',
+			js: 'js/',
+			css: 'css/',
+			img: 'img/',
+			image: 'image/',
+			fonts: 'fonts/'
 		},
 		dev: {
 			html: 'dev/*.html', // Синтаксис dev/*.html говорит gulp что мы хотим взять все файлы с расширением .html
