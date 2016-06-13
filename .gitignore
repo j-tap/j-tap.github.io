@@ -1,6 +1,9 @@
 node_modules/
 *.db
 
+<<<<<<< HEAD
 build/
 projects/
 favicon.ico
+=======
+>>>>>>> dev

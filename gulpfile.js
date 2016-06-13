@@ -14,17 +14,19 @@ var gulp = require('gulp'),
 
 	path = {
 		build: {
-			html: 'build/',
-			js: 'build/js/',
-			css: 'build/css/',
-			img: 'build/img/',
-			fonts: 'build/fonts/'
+			html: '.',
+			js: 'js/',
+			css: 'css/',
+			img: 'img/',
+			image: 'image/',
+			fonts: 'fonts/'
 		},
 		dev: {
 			html: 'dev/*.html', // Синтаксис dev/*.html говорит gulp что мы хотим взять все файлы с расширением .html
 			js: 'dev/js/main.js', // В стилях и скриптах нам понадобятся только main файлы
 			style: 'dev/style/**/*.sass',
 			img: 'dev/img/**/*.*', // Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+			image: 'dev/image/**/*.*',
 			fonts: 'dev/fonts/**/*.*',
 			bootstrap: {
 				sass: 'node_modules/bootstrap-sass/assets/stylesheets/',
@@ -80,11 +82,13 @@ gulp.task('style:build', function () {
 				path.dev.slick.sass
 			]
 		}))
-		.pipe(uncss({ // удаление не испульзуемых стилей
-			html: [path.dev.html]
-		}))
+		/*.pipe(uncss({ // удаление не испульзуемых стилей
+			html: [
+				path.dev.html
+			]
+		}))*/
 		.pipe(autoprefixer({ //Добавим вендорные префиксы
-			browsers: ['> 1%'],
+			browsers: ['> 0.1%'],
 			cascade: false
 		}))
 		//.pipe(cssmin()) //Сожмем
@@ -106,8 +110,22 @@ gulp.task('image:build', function () {
 			],
 			interlaced: true
 		}))
-		.pipe(gulp.dest(path.build.img)) //И бросим в build
+		.pipe(gulp.dest(path.build.img)); //И бросим в build
 		//.pipe(reload({stream: true})
+
+	gulp.src(path.dev.image)
+		.pipe(imagemin({
+			progressive: true,
+			svgoPlugins: [{removeViewBox: false}],
+			use: [
+				pngquant({
+					quality: '65-80', 
+					speed: 4
+				})
+			],
+			interlaced: true
+		}))
+		.pipe(gulp.dest(path.build.image))
 });
 
 gulp.task('fonts:build', function() { // дабы держать традицию
