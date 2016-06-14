@@ -1702,6 +1702,11 @@ a {
 	background-position: -180px -280px
 }
 
+.foot-copy a {
+	font: inherit;
+	color: inherit
+}
+
 .swiper-pagination-bullet {
 	background: #e6e6e6;
 	height: 12px;

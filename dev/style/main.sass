@@ -245,11 +245,19 @@ button
 		border-radius: 10px / 100px
 
 .project-img 
+	position: relative
 	overflow: hidden 
 	display: block 
-	backface-visibility: hidden
-	transition: opacity 200ms ease
-	opacity: .8 
+	&:before 
+		content: ' '
+		position: absolute 
+		top: 0
+		left: 0
+		display: block
+		width: 100%
+		height: 100%  
+		background: transparent
+		transition: background 200ms ease-out  
 	img
 		width: 100% 
 		display: block 
@@ -274,14 +282,22 @@ button
 	&:hover, &focus
 		.project-title  
 			opacity: 1 
-		.project-img
-			opacity: 1 
+		.project-img:before
+			background: rgba(#FFF, .3)
+			
+.article 
+	font-size: 1.8rem 
+	p
+		margin-top: 15px 
+		&:first-child
+			margin-top: 0  
 	
 
 .footer
 	text-align: center
 	font-size: 1.3rem 
 	padding: 15px 0 
+	margin-top: 60px 
 	
 
 .show-md 
