@@ -120,17 +120,82 @@ button
 		
 .header-photo 
 	width: 100%
-	height: 100% 	
+	height: 100% 
 	border-radius: 50%
-	overflow: hidden 
 	border: 4px solid #fff 
 	background: #FFF 
+	color: #333 
+	text-align: center 
+	&.flip-face-back 
+		box-shadow: 0 0 5px rgba(#000, 0.2) inset
 	img 
 		width: 100% 
 		border-radius: 50% 
 		position: relative
 		filter: grayscale(20%)
-		transition: filter 800ms linear		
+		transition: filter 800ms linear	
+.header-status
+	padding: 35px 15px
+	font-size: 1.6rem
+	font-family: 'Roboto', sans-serif
+	&.status-1
+		small:after 
+			color: #197541
+			content: 'Свободен' 
+	&.status-2
+		small:after 
+			color: #ff5e00
+			content: 'Частично занят' 
+	&.status-3
+		small:after 
+			color: #b13e3b
+			content: 'Занят' 
+	small
+		font-size: 1.3rem
+		display: block 
+		margin-top: 8px 
+		color: #8C8C8C 
+		&:after
+			font-size: 1.5rem
+			font-weight: 300 
+			display: block
+		
+.status-level
+	position: relative
+	height: 1px
+	display: block
+	margin-top: 8px 
+	.status-1 &
+		background: linear-gradient(to right, #197541 10%,#e3e9ec 10%)
+	.status-2 &
+		background: linear-gradient(to right, #197541 0%,#f2e532 33%,#ffa323 50%,#e3e9ec 50%)
+	.status-3 &
+		background: linear-gradient(to right, #197541 0%,#f2e532 37%,#ffa323 62%,#ed5300 77%,#af100e 100%)
+
+
+.flip 
+	position: relative
+	margin: 10px auto
+	width: 100%
+	height: 100%
+	z-index: 1
+	perspective: 1000
+.flip-card 
+	width: 100%
+	height: 100%
+	transform-style: preserve-3d
+	transition: transform 700ms linear
+.flip:hover .flip-card  
+	transform: rotateY(180deg)
+.flip-face
+	position: absolute
+	width: 100%
+	height: 100%
+	backface-visibility: hidden
+.flip-face-back 
+	display: block
+	transform: rotateY(180deg)
+
 			
 .header-center
 	position: relative
