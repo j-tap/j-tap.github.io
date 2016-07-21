@@ -4,9 +4,17 @@
 
 
 .btn-default
-	border-color: #D8E1E5
+	background-color: #fff
+	border-color: #DCE4E8
 	font: inherit
 	color: inherit 
+	text-decoration: none
+	-webkit-transition: background 200ms ease-in, border 200ms ease-in 
+	transition: background 200ms ease-in, border 200ms ease-in
+.btn-default:hover 
+	color: #333
+	background-color: #d9d9d9
+	border-color: #c1c8cc
 
 
 
@@ -22,12 +30,15 @@ $f-col: #333;
 
 html 
 	font-size: 10px
+	position: relative
+	min-height: 100%
 
 body 
 	font: 300 1.6rem 'Roboto', sans-serif
 	background: #fff
 	color: $f-col
 	line-height: 1.5
+	margin-bottom: 60px
 
 a 
 	outline: none
@@ -70,6 +81,9 @@ button
 	border-color: green
 .message-error 
 	border-color: red
+
+.page 
+	
 
 /* HEADER */
 
@@ -385,12 +399,101 @@ button
 		width: 10px
 		margin: -5px auto auto -5px
 		background: #333
+		
 
+
+/* 404 */
+
+.error-404 
+
+	.btn 
+		width: 260px 
+	.head-title
+		margin-bottom: 40px
+	.error-404-text 
+		font-size: 2rem 
+		text-align: center
+		margin-top: 50px
+		
+		p
+			margin-bottom: 30px 
+	
+	.gear-animate 
+		display: block
+		height: 200px
+		width: 200px
+		margin: auto
+		position: relative
+	
+		&:after,
+		&:before 
+			content: ''
+			position: absolute
+			display: block
+			background: none no-repeat scroll 0 0
+		&:before 
+			background-image: url('../img/gear-lg.png')
+			width: 129px
+			height: 130px
+			left: 0
+			top: 0
+			animation: rotate1 4s infinite linear
+			-moz-animation: rotate1 4s infinite linear
+			-webkit-animation: rotate1 4s infinite linear
+		&:after 
+			background-image: url('../img/gear-sm.png')
+			width: 80px
+			height: 81px
+			left: 80px
+			top: 114px
+			animation: rotate2 2s infinite linear
+			-moz-animation: rotate2 2s infinite linear
+			-webkit-animation: rotate2 2s infinite linear
+	
+
+	@keyframes rotate1 
+		from 
+			transform:  rotate(0)	
+		to 
+			transform: rotate(360deg)
+	@-moz-keyframes rotate1 
+		from 
+			-moz-transform:  rotate(0)
+		to 
+			-moz-transform: rotate(360deg)
+	@-webkit-keyframes rotate1 
+		from 
+			-webkit-transform: rotate(0)
+		to 
+			-webkit-transform: rotate(360deg)
+	
+	@keyframes rotate2 
+		from 
+			transform:  rotate(0)
+		to 
+			transform: rotate(-360deg)
+	@-moz-keyframes rotate2 
+		from 
+			-moz-transform: rotate(0)
+		to 
+			-moz-transform: rotate(-360deg)
+	@-webkit-keyframes rotate2 
+		from 
+			-webkit-transform: rotate(0)	
+		to 
+			-webkit-transform: rotate(-360deg)
+		
+	
 
 .footer
 	text-align: center
 	font-size: 1.3rem 
-	padding: 15px 0 
+	padding: 15px 0 10px 
+	width: 100%
+	height: 60px
+	position: absolute
+	bottom: 0
+	left: 0
 	
 
 .show-md 
