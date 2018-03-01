@@ -3,38 +3,6 @@
 
 $f-col: #2C2C2C;
 
-.btn-default
-	padding-left: 30px
-	padding-right: 30px 
-	border-radius: 0
-	position: relative
-	overflow: hidden
-	background: none
-	font: inherit
-	color: #64cc48 
-	text-decoration: none
-	text-transform: uppercase
-	transition: .3s ease-in
-	border: 2px solid #64cc48
-	&:after
-		content: ''
-		position: absolute
-		transition: .3s ease-in
-		width: 0
-		bottom: 0
-		background: #64cc48
-		height: 120%
-		left: -10%
-		transform: skewX(20deg)
-		z-index: -1
-	&:hover, &:focus
-		color: #fff
-		background: none
-		border: 2px solid #64cc48
-		&:after
-			left: -10%;
-			width: 120%
-
 
 ::selection 
 	background: rgba(#000, 0.5)
@@ -84,6 +52,85 @@ button
 	background: transparent
 	border: none
 	padding: 0
+	
+
+.btn
+	padding: 10px 30px 
+	border-radius: 0
+	position: relative
+	overflow: hidden
+	background: none
+	font: inherit
+	font-size: 1.4rem 
+	font-weight: 400 
+	text-decoration: none
+	text-transform: uppercase
+	transition: .3s ease-in
+	&:after
+		content: ''
+		position: absolute
+		transition: .3s ease-in
+		width: 0
+		bottom: 0
+		height: 120%
+		left: -10%
+		transform: skewX(20deg)
+		z-index: -1
+	&:hover, &:focus
+		&:after
+			left: -10%;
+			width: 120%
+
+	&.btn-lg 
+		font-size: 1.6rem
+		padding: 15px 40px 
+		
+	&.btn-default
+		color: #64cc48 
+		border: 2px solid #64cc48
+		&:after
+			background: #64cc48
+		&:hover, &:focus
+			color: #fff
+			background: none
+			border: 2px solid #64cc48
+	&.btn-info
+		color: #52d5fb 
+		border: 2px solid #52d5fb
+		&:after
+			background: #52d5fb
+		&:hover, &:focus
+			color: #fff
+			background: none
+			border: 2px solid #52d5fb
+	&.btn-primary
+		color: #1f8eed 
+		border: 2px solid #1f8eed
+		&:after
+			background: #1f8eed
+		&:hover, &:focus
+			color: #fff
+			background: none
+			border: 2px solid #1f8eed
+	&.btn-danger
+		color: #ff3535 
+		border: 2px solid #ff3535
+		&:after
+			background: #ff3535
+		&:hover, &:focus
+			color: #fff
+			background: none
+			border: 2px solid #ff3535
+
+.btns-row 
+	display: block
+	text-align: center
+	font-size: 0
+	.btn
+		display: inline-block
+		vertical-align: middle
+		margin: 5px 
+		
 
 .message 
 	padding: 5px
@@ -282,7 +329,6 @@ button
 /* MAIN */
 
 .head-title
-	overflow: hidden;
 	text-align: center
 	font-size: 4rem
 	font-weight: 300
@@ -625,6 +671,13 @@ button
 	bottom: 0
 	left: 0
 	
+
+@for $i from 1 through 10 
+	$n: $i * 10
+	.mb#{$n}
+		margin-bottom: #{$n}px
+	.mt#{$n}
+		margin-top: #{$n}px
 
 .show-md 
 	display: none
