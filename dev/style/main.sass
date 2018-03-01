@@ -1,24 +1,40 @@
 @import 'bootstrap'
 @import 'font-awesome'
 
-
+$f-col: #2C2C2C;
 
 .btn-default
-	background-color: #fff
-	border-color: #DCE4E8
+	padding-left: 30px
+	padding-right: 30px 
+	border-radius: 0
+	position: relative
+	overflow: hidden
+	background: none
 	font: inherit
-	color: inherit 
+	color: #64cc48 
 	text-decoration: none
-	-webkit-transition: background 200ms ease-in, border 200ms ease-in 
-	transition: background 200ms ease-in, border 200ms ease-in
-.btn-default:hover 
-	color: #333
-	background-color: #d9d9d9
-	border-color: #c1c8cc
+	text-transform: uppercase
+	transition: .3s ease-in
+	border: 2px solid #64cc48
+	&:after
+		content: ''
+		position: absolute
+		transition: .3s ease-in
+		width: 0
+		bottom: 0
+		background: #64cc48
+		height: 120%
+		left: -10%
+		transform: skewX(20deg)
+		z-index: -1
+	&:hover, &:focus
+		color: #fff
+		background: none
+		border: 2px solid #64cc48
+		&:after
+			left: -10%;
+			width: 120%
 
-
-
-$f-col: #333;
 
 ::selection 
 	background: rgba(#000, 0.5)
@@ -89,25 +105,27 @@ button
 
 .header
 	position: relative
-	background: #A6F3FF 
+	background: #2C2C2C 
 	min-height: 290px
 	color: #FFF  
 	padding: 30px 0
 	overflow: hidden 
+	// animation: animColorBg 10s infinite;
 	
 .header-bg
-	background: url('../img/header-bg.jpg') repeat 50% 0 #4CB2C8 
-	background-size: cover 
+	background: url('../img/header-bg.jpg') no-repeat 50% 50% 
+	background-size: auto auto
+	background-attachment: fixed
 	width: 100%
 	height: 100% 
 	position: absolute
 	top: 0
 	left: 0
 	opacity: 0.8
-	animation-duration: 60s
-	animation-name: animHeader
-	animation-fill-mode: forwards
-	animation-iteration-count: infinite
+	will-change: transform
+	backface-visibility: hidden
+	filter: blur(3px)
+	animation: animHeader 80s infinite;
 
 .header-contact
 	position: absolute
@@ -118,8 +136,8 @@ button
 	a 
 		position: absolute
 		top: 60px
-		animation-delay: 500Ms
-		animation-duration: 700ms
+		animation-delay: .5s
+		animation-duration: 2s
 		animation-fill-mode: forwards
 		animation-iteration-count: 1
 	.header-contact-l
@@ -134,7 +152,6 @@ button
 .header-photo 
 	width: 100%
 	height: 100% 
-	border-radius: 50%
 	border: 3px solid #fff 
 	background: #FFF 
 	color: #333 
@@ -143,7 +160,6 @@ button
 		box-shadow: 0 0 5px rgba(#000, 0.1) inset
 	img 
 		width: 100% 
-		border-radius: 50% 
 		position: relative
 		// filter: grayscale(50%)
 		transition: filter 800ms linear	
@@ -153,15 +169,15 @@ button
 	font-family: 'Roboto', sans-serif
 	&.status-1
 		small:after 
-			color: #9fe300
+			color: #64cc48
 			content: 'Свободен' 
 	&.status-2
 		small:after 
-			color: #FF6600
+			color: #ffa200
 			content: 'Частично занят' 
 	&.status-3
 		small:after 
-			color: #ff4567
+			color: #ff3535
 			content: 'Занят' 
 	small
 		font-size: 1.3rem
@@ -181,11 +197,11 @@ button
 	width: 100% 
 	border: none
 	.status-1 &
-		background: linear-gradient(to right, #9fe300 10%,#e3e9ec 10%)
+		background: linear-gradient(to right, #64cc48 0%, #64cc48 33%, #e3e9ec 34%, #e3e9ec 100%)
 	.status-2 &
-		background: linear-gradient(to right, #9fe300 0%,#f2e532 33%,#FFC21E 50%,#e3e9ec 50%)
+		background: linear-gradient(to right, #64cc48 0%, #64cc48 33%, #ffa200 34%, #ffa200 66%, #e3e9ec 67%, #e3e9ec 100%)
 	.status-3 &
-		background: linear-gradient(to right, #9fe300 0%,#f2e532 37%,#FFC21E 62%,#FF6600 77%,#ff4567 100%)
+		background: linear-gradient(to right, #64cc48 0%, #64cc48 33%, #ffa200 34%, #ffa200 66%, #ff3535 67%, #ff3535 100%)
 
 
 .flip 
@@ -195,6 +211,8 @@ button
 	height: 100%
 	z-index: 1
 	perspective: 1000
+	opacity: 0
+	animation: animShow .3s forwards;
 .flip-card 
 	width: 100%
 	height: 100%
@@ -224,51 +242,81 @@ button
 	position: absolute
 	a
 		text-decoration: none
-		font-size: 2rem 
+		font-size: 2rem
+		transition: color .2s ease-in  
 		&:after
 			content: ''
 			display: block 
+		&:hover,
+		&:focus 
+			color: #ff3535 
 		.fa
 			margin: 0 5px  
 
 .header-logo 
-	font-size: 4.5rem 
+	font-size: 0 
 	text-transform: uppercase 
-	font-weight: 300 
+	font-weight: 700 
 	text-align: center 
+	line-height: 1.2
+	margin: 0 0 20px
 	small 
 		display: block 
 		color: inherit 
 		text-transform: none 
+		.char 
+			font-size: 2rem 
+	.char 
 		font-size: 2.6rem 
-		.char
-			visibility: hidden
-			animation-duration: 1ms
-			animation-fill-mode: forwards 
-			animation-iteration-count: 1
-			animation-name: animLogo
-		.char-1 
-			animation-delay: 1500ms
-		.char-2 
-			animation-delay: 1700ms
-		.char-3 
-			animation-delay: 1900ms
-		.char-4 
-			animation-delay: 2100ms
-		.char-5 
-			animation-delay: 2200ms
+		visibility: hidden
+		animation-duration: 1ms
+		animation-fill-mode: forwards 
+		animation-iteration-count: 1
+		animation-name: animLogo
+
+@for $i from 1 through 22 
+	.header-logo .char-#{$i}
+		animation-delay: 1500ms + ($i * 150) + random(100)	
+
 
 /* MAIN */
 
 .head-title
+	overflow: hidden;
 	text-align: center
 	font-size: 4rem
-	font-weight: 500
-	letter-spacing: 3px
-	color: #9fe300
-	margin: 50px 0 
-	text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.3)
+	font-weight: 300
+	letter-spacing: 4px
+	margin: 60px 0 
 	text-transform: uppercase 
+	position: relative
+	color: #64cc48
+	span 
+		position: relative
+		display: inline-block
+		// background: #fff 
+		padding: 10px 40px
+		border: 1px solid
+		&:before, &:after 
+			content: ''
+			position: absolute
+			top: 50%
+			border-bottom: 1px solid 
+			z-index: -1
+			width: 30% 
+		&:before 
+			left: -30%
+		&:after 
+			right:- 30%
+
+.section-advantage
+	
+
+.advantage-item
+	height: 330px 
+	&:hover .advantage-icon 
+		svg 
+			transform: scale(1.2)
 
 .advantage-icon
 	position: relative
@@ -276,18 +324,22 @@ button
 	height: 140px
 	line-height: 170px 
 	text-align: center
-	margin: 0 auto 20px
+	margin: 0 auto 30px
 	svg
 		fill: transparent
-		stroke: #ff4567
-		width: 120px
-		height: 140px 
+		stroke: #ff2441
+		width: 100%
+		height: 100% 
 		position: absolute
 		top: 0
 		left: 0
-	.fa
+		transform: scale(1)
+		transition: transform .3s ease 
+	.fa 
+		position: relative
 		font-size: 6rem
-		color: #ff4567 
+		color: #ff2441 
+
 .advantage-label
 	
 	h3
@@ -296,30 +348,71 @@ button
 		b 
 			font-size: 2rem
 			display: block 
+			color: #ff2441 
 			text-transform: uppercase
 			font-weight: 300
 			margin-bottom: 10px
 
+.section-skills
+	position: relative
+	z-index: 1
+	overflow: hidden
+	background: #2C2C2C 
+	color: #fff 
+	&:before
+		content: ''
+		position: absolute
+		top: -15px
+		left: -15px
+		right: -15px
+		bottom: -15px 
+		background: url('../img/block-skills-bg.jpg') no-repeat 50% 50% 
+		background-size: cover
+		background-attachment: fixed
+		filter: blur(3px)
+		opacity: .7 
+		
+	.head-title 
+		color: #fff 
+
 .label-skill
 	border-radius: 0
 	display: inline-block
-	margin: 5px 3px
-	background-color: #77bad4 
+	position: relative
+	overflow: hidden
+	margin: 5px
+	padding: 5px 20px
 	color: #fff 
 
 .skills-block
 	text-align: center 
-	max-width: 640px 
-	margin: 0 auto 
+	margin: 0 auto 30px 
 	.label
-		font-size: 2rem
+		font-size: 1.6rem
 		font-weight: 300
 		line-height: 4rem 
+		&:after 
+			content: ''
+			position: absolute 
+			z-index: 2 
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			opacity: 0
+			background: #FFF 
+		&:hover 
+			animation-name: animTwitch
+			animation-duration: .4s
+			animation-fill-mode: both
+			&:after
+				animation: animFlicker 3s linear infinite
 			
 .project-item 
 	margin: 0 auto 30px
 	position: relative 
 	background: #fff
+	border: 2px solid #ffffff
 	&:before, 
 	&:after 
 		content: ' '
@@ -337,6 +430,7 @@ button
 	position: relative
 	overflow: hidden 
 	display: block 
+	height: 200px
 	&:before 
 		content: ' '
 		position: absolute 
@@ -346,14 +440,23 @@ button
 		width: 100%
 		height: 100%  
 		background: transparent
-		transition: background 200ms ease-out  
-	img
+		transition: background .2s ease-out  
+		z-index: 2
+	img 
+		position: relative
 		width: 100% 
+		height: auto
 		display: block 
-		
+		will-change: filter
+		transform: translate3d(0,0,0) scale(1.0, 1.0)
+		filter: blur(0)
+		transition: filter .3s ease-out
+		transition-timing-function: steps(3, end)
+		backface-visibility: hidden
 
 .project-title
 	position: absolute 
+	z-index: 2
 	top: 50%
 	margin-top: -70px
 	left: 0
@@ -365,16 +468,29 @@ button
 	font-size: 2rem
 	opacity: 0 
 	padding: 0 30px 
-	background: rgba(255, 255, 255, .9)
+	color: #fff
+	// background: rgba(255, 255, 255, .8)
 	transition: all 300ms linear
-	b
-		font-size: 2rem 	
+	span 		
+		display: inline-block
+		line-height: 1
+		vertical-align: middle
+		
+		b
+			font-size: 2rem 
+			display: block
+				
 .project-item 
 	&:hover, &focus
 		.project-title  
 			opacity: 1 
-		.project-img:before
-			background: rgba(#FFF, .5)
+			color: #fff
+		.project-img
+			
+			&:before
+				background: rgba(0,0,0,.4)
+			img
+				filter: blur(3px)
 			
 .article 
 	font-size: 1.8rem 
@@ -382,15 +498,18 @@ button
 		margin-top: 15px 
 		&:first-child
 			margin-top: 0  
+			
+.article-about
+	margin-bottom: 30px
 	
 .hr
 	position: relative
 	overflow: visible
-	background: #9fe300
-	color: #9fe300 
+	background: #64cc48
+	color: #64cc48 
 	border: none 
 	height: 1px 
-	width: 50%
+	width: 20vw
 	clear: both
 	margin: 50px auto 
 	&:after, 
@@ -409,7 +528,7 @@ button
 		height: 10px
 		width: 10px
 		margin: -5px auto auto -5px
-		background: #9fe300
+		background: #64cc48
 		
 
 
@@ -517,27 +636,80 @@ button
 	display: none
 .show-lg 
 	display: block	
+	
+
+.text-success
+	color: #64cc48
+.label-success 
+	background-color: #64cc48
+.text-info
+	color: #52d5fb
+.label-info 
+	background-color: #52d5fb
+.text-danger
+	color: #ff3535
+.label-danger 
+	background-color: #ff3535
+.text-warning
+	color: #ffa200
+.label-warning 
+	background-color: #ffa200
+.text-primary
+	color: #1f8eed
+.label-primary 
+	background-color: #1f8eed
+
+
+@keyframes animFlicker 
+	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% 
+		opacity: 0  
+	20%, 21.999%, 63%, 63.999%, 65%, 69.999% 
+		opacity: .4 
+	
+
+@keyframes animColorBg 
+	0% 
+		background: #ff3535
+	25% 
+		background: #ffa200
+	50% 
+		background: #64cc48
+	75% 
+		background: #ffa200
+	100% 
+		background: #ff3535
 
 
 @keyframes animHeader 
 	0% 
-		transform: scale(1, 1)
+		transform: scale(1, 1) 
 	50% 
-		transform: scale(1.3, 1.3)
+		transform: scale(1.2, 1.2)
 	100% 
 		transform: scale(1, 1)
 
+
 @keyframes animHeaderAddrL 
 	0% 
+		opacity: 0
 		left: 0
+	25%
+		opacity: 1
 	100% 
 		left: -155px
+		opacity: 1
+		
 @keyframes animHeaderAddrR
 	0% 
+		opacity: 0
 		right: 0
+	25%
+		opacity: 1
 	100% 
 		right: -130px
+		opacity: 1
 		
+
 @keyframes animLogo
 	0% 
 		visibility: hidden
@@ -545,11 +717,29 @@ button
 		visibility: visible
 		
 
-		
-/* MEDIA QUERY */
+@keyframes animShow
+	0% 
+		opacity: 0
+	100% 
+		opacity: 1
+				
 
-/* @media (max-width: 1280px) */
-	
+@keyframes animTwitch
+	from,
+	to
+		transform: translate3d(0, 0, 0)
+	20%
+		transform: translate3d(-5px, 0, 0)
+	60%
+		transform: translate3d(-2px, 0, 0)
+	40%
+		transform: translate3d(5px, 0, 0)
+	80%
+		transform: translate3d(2px, 0, 0)
+		
+
+		
+/* MEDIA QUERY */	
 
 @media (max-width: 1199px)
 	.show-lg 
@@ -568,6 +758,11 @@ button
 		display: block
 	.show-sm  
 		display: block
+		
+	.head-title
+		font-size: 3rem 
+		span
+			padding: 5px 30px
 
 @media (max-width: 767px) 
 	.hide-xs  
@@ -581,22 +776,55 @@ button
 	body
 		line-height: 1.2 
 	
+	.head-title
+		margin: 40px 0
+	
 	.advantage-item 
 		margin-bottom: 40px 
-	  
+		height: auto
+	
+	.advantage-icon
+		width: 80px
+		height: 80px
+		line-height: 94px 
+		.fa 
+			font-size: 4rem
+		
+	.label-skill
+		margin: 1px
+		padding: 0 10px
+		
 	.project-title
-		opacity: 1 
+		opacity: 1
+		top: auto
+		bottom: 0
+		background: rgba(0, 0, 0, 0.8)
+		height: auto
+		line-height: 1
+		padding: 15px
+		span 
+			line-height: 1.2 
 	.project-item 
 		.project-img
+			height: auto
+			&:before 
+				display: none
 			img 
 				opacity: 1 
 
-@media (max-width: 479px) 
+@media (max-width: 575px) 
+	.header
+		min-height: 340px
 	.header-contact
 		a
 			animation: none
-			top: 160px
+			top: 190px
 		.header-contact-l
-			left: -78px
+			left: -50px
 		.header-contact-r
 			right: -50px
+	
+	.head-title
+		font-size: 2.4rem
+		span 
+			padding: 5px 15px
