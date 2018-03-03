@@ -482,8 +482,8 @@ button
 .project-item 
 	margin: 0 auto 30px
 	position: relative 
-	background: #fff
-	border: 2px solid #ffffff
+	background: #e7e7e7
+	border: 2px solid #fff
 	&:before, 
 	&:after 
 		content: ' '
@@ -502,22 +502,13 @@ button
 	overflow: hidden 
 	display: block 
 	height: 200px
-	&:before 
-		content: ' '
-		position: absolute 
-		top: 0
-		left: 0
-		display: block
-		width: 100%
-		height: 100%  
-		background: transparent
-		transition: background .2s ease-out  
-		z-index: 2
+	line-height: 200px
+	font-size: 0 
 	img 
 		position: relative
 		width: 100% 
 		height: auto
-		display: block 
+		display: inline-block 
 		will-change: filter
 		transform: translate3d(0,0,0) scale(1.0, 1.0)
 		filter: blur(0)
@@ -525,41 +516,51 @@ button
 		transition-timing-function: steps(3, end)
 		backface-visibility: hidden
 
-.project-title
+.project-info
 	position: absolute 
 	z-index: 2
-	top: 50%
-	margin-top: -70px
+	top: 0
 	left: 0
 	width: 100% 
-	height: 140px
-	line-height: 140px   
+	height: 100%
 	text-align: center
-	text-decoration: none 
-	font-size: 2rem
 	opacity: 0 
-	padding: 0 30px 
 	color: #fff
-	// background: rgba(255, 255, 255, .8)
+	background: rgba(0,0,0,.4)
 	transition: all 300ms linear
-	span 		
+	display: flex
+	justify-content: center
+	align-items: center
+.project-info-inner
+	display: block
+	padding: 15px
+	text-decoration: none
+	
+.project-title
+	font-size: 2rem		
+	display: inline-block
+	line-height: 1.1
+	vertical-align: middle
+	b
+		display: block
+
+.project-tags 
+	font-size: 0
+	margin: 15px 0 0 
+	li
+		font-size: 1.2rem
+		line-height: 1 
 		display: inline-block
-		line-height: 1
-		vertical-align: middle
-		
-		b
-			font-size: 2rem 
-			display: block
+		border: 1px solid
+		padding: 3px
+		margin: 3px
 				
 .project-item 
 	&:hover, &focus
-		.project-title  
+		.project-info  
 			opacity: 1 
 			color: #fff
 		.project-img
-			
-			&:before
-				background: rgba(0,0,0,.4)
 			img
 				filter: blur(3px)
 			
@@ -882,7 +883,8 @@ button
 		margin: 1px
 		padding: 0 10px
 		
-	.project-title
+	.project-info
+		position: relative
 		opacity: 1
 		top: auto
 		bottom: 0
@@ -890,10 +892,13 @@ button
 		height: auto
 		line-height: 1
 		padding: 15px
+		
+	.project-title
 		span 
 			line-height: 1.2 
 	.project-item 
 		.project-img
+			line-height: 1 
 			height: auto
 			&:before 
 				display: none
