@@ -10,16 +10,16 @@ $(function () {
 })
 
 function headerTyping () {
-	var eElem = $('.header-logo'),
-		eChild = eElem.children().not('.char'),
+	var eLogo = $('.header-logo');
+	eLogo.find('.char').remove();
+
+	var eChild = eLogo.children('small'),
 		l = 0;
 
-	_action(eElem, eElem.textNode());
-	_action(eChild, eChild.text());
+	_action(eLogo, eLogo.textNode());
+	_action(eChild, eChild.children('span').textNode());
 
 	function _action (eElem, sText) {
-		eElem.find('.char').remove();
-
 		for (var i = 0; i < sText.length; i++) {
 			var eChar = $('<span/>', {
 					text: sText.charAt(i),
@@ -32,19 +32,18 @@ function headerTyping () {
 }
 
 oLng = {
-	default: 'ru',
+	sDefault: 'ru',
 	init: function () {
 		var _this = this;
 
-		if (localStorage.getItem('lng')) _this.default = localStorage.getItem('lng');
+		if (localStorage.getItem('lng')) _this.sDefault = localStorage.getItem('lng');
 
 		$.getJSON('/lang.json', function (data) {
-			_this.oLng = data;
+			_this.oStrings = data;
 
-			_this.toggler($('[data-lng="'+ _this.default +'"]'));
+			_this.toggler($('[data-lng="'+ _this.sDefault +'"]'));
 
-			_this.set(_this.default, function () {
-				headerTyping();
+			_this.set(_this.sDefault, function () {
 
 				$('[data-lng]').click(function () {
 					_this.toggler($(this));
@@ -66,19 +65,24 @@ oLng = {
 	},
 	set: function (lng, f) {
 		var _this = this;
-		if (!_this.oLng[lng]) lng = _this.default;
+		if (!_this.oStrings[lng]) lng = _this.sDefault;
 
-		$('[lngstr]').each(function () {
+		_this.sCurrent = lng;
+
+		$('[lngstr]').each(function (i) {
 			var sName = $(this).attr('lngstr');
 			$(this).animate({opacity: 0}, 200, function () {
-				$(this).html(_this.oLng[lng][sName]);
-				$(this).animate({opacity: 1}, 200);
+				$(this).html(_this.oStrings[lng][sName]);
+				$(this).animate({opacity: 1}, 200, function () {
+					if ($('[lngstr]').length == i+1) {
+						if (typeof f == 'function') f();
+					}
+				});
 			})
 			
 		})
 
 		localStorage.setItem('lng', lng);
-		if (typeof f == 'function') f();
 	}
 }
 
