@@ -2,7 +2,7 @@
 
 <header class="header" id="header">
 	<div class="header-bg"></div>
-	<div class="container" itemscope itemtype="http://schema.org/Organization">
+	<div class="container" itemscope itemtype="http://schema.org/Person">
 		<div class="row">
 			<div class="col-12 rel">
 				<div class="lng-swith">
@@ -12,7 +12,14 @@
 				</div>
 			</div>
 			<div class="col-md-4 col-md-offset-4">
-				<h1 class="header-logo">j-tap <small itemprop="name"><span lngstr="development">web разработка</span></small></h1>
+				<h1 class="header-logo">
+					<span>
+						<span lngstr="name" itemprop="name">j-tap</span> 
+					</span>
+					<small>
+						<span lngstr="development" itemprop="jobTitle">web-разработчик</span>
+					</small>
+				</h1>
 				<div class="header-center js-header-addr">
 					<address class="header-contact">
 						<a class="header-contact-l" href="mailto:j-tap@ya.ru" rel="nofollow">
@@ -30,7 +37,7 @@
 					<div class="flip">
 						<div class="flip-card">
 							<div class="flip-face header-photo">
-								<img src="img/ava.jpg" alt="j-tap">
+								<img src="img/ava.jpg" alt="j-tap" itemprop="image">
 							</div>
 							<div class="flip-face-back flip-face header-photo">
 								<div class="header-status status-3">

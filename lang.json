@@ -1,7 +1,8 @@
 {
 	"ru": {
-		"title": "j-tap - портфолио",
-		"development": "web разработка",
+		"title": "j-tap - web-разработчик",
+		"name": "j-tap",
+		"development": "web-разработчик",
 		"russia": "Россия",
 		"status": "Статус",
 		"advantages": "Успехи",
@@ -30,8 +31,9 @@
 		"about-text": "<p>Привет, я Игорь и я front-end разработчик. Работаю в этом направлении с 2014 года. Знаком с основами back-end, разрабатываю веб сайты на системах Битрикс и Wordpress, знаю основы UI, есть базовые навыки дизайнера.</p><p>За время работы занимался вёрсткой веб страниц, e-mail рассылок, разработкой интерфейсов, созданием панелей управления, разработкой сайтов «под ключ», интеграцией, рефакторингом кода,  написанием веб приложений.</p><p>В своей работе использую следующие программы и компоненты: <em>Sublime Text 3, Total Commander 9, WinSCP, Google Chrome (latest), Adobe Photoshop 2018, Adobe Illustrator 2018, Zeplin, PhpMyAdmin, Open server, MySQL Front, Putty, Jira, Skype, Slack.</em></p><p>Нацелен развивать себя и свои проекты, люблю красивый и простой код. Всегда готов к изучению и использованию новых технологий. Женат, есть двое детей и собака. Люблю путешествия, фотографию, природу, технику.</p>"
 	},
 	"en": {
-		"title": "j-tap - portfolio",
-		"development": "web development",
+		"title": "j-tap - web-developer",
+		"name": "j-tap",
+		"development": "web-developer",
 		"russia": "Russia",
 		"status": "Status",
 		"advantages": "Advantages",

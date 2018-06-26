@@ -13,11 +13,12 @@ function headerTyping () {
 	var eLogo = $('.header-logo');
 	eLogo.find('.char').remove();
 
-	var eChild = eLogo.children('small'),
+	var eName = eLogo.children('span'),
+		eStatus = eLogo.children('small'),
 		l = 0;
 
-	_action(eLogo, eLogo.textNode());
-	_action(eChild, eChild.children('span').textNode());
+	_action(eName, eName.children('span').textNode());
+	_action(eStatus, eStatus.children('span').textNode());
 
 	function _action (eElem, sText) {
 		for (var i = 0; i < sText.length; i++) {
