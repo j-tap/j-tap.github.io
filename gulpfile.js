@@ -4,7 +4,8 @@ var gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer'),
 	sourcemaps = require('gulp-sourcemaps'), // карта кодов
 	uncss = require('gulp-uncss'), // проверка css на дубли и не задействованые стили
-	concat = require('gulp-concat'), // объединение
+	concat = require('gulp-concat'), // объединение js
+	concatCss = require('gulp-concat-css'), // объединение css
 	uglify = require('gulp-uglify'), // минификация js
 	strip = require('gulp-strip-comments'), // удаление комментов
 	fontawesome = require('node-font-awesome'),
@@ -40,12 +41,7 @@ var gulp = require('gulp'),
 			fontawesome: {
 				sass: fontawesome.scssPath,
 				fonts: fontawesome.fonts
-			},
-			slick: {
-				sass: 'node_modules/slick-carousel/slick/slick.scss',
-				js: 'node_modules/slick-carousel/slick/slick.min.js',
-				fonts: 'node_modules/slick-carousel/slick/fonts/**/*.*'
-			},
+			}
 		},
 		watch: {
 			html: 'dev/**/*.html',
@@ -79,13 +75,12 @@ gulp.task('html:build', function () {
 
 gulp.task('style:build', function () {
 	gulp.src(path.dev.style) //Выберем sass
-		.pipe(sourcemaps.init()) //Инициализируем sourcemap
+		//.pipe(sourcemaps.init()) //Инициализируем sourcemap
 		.pipe(sass({ //Скомпилируем
 			outputStyle: 'compressed', //nested
 			includePaths: [
 				path.dev.bootstrap.sass,
 				path.dev.fontawesome.sass,
-				path.dev.slick.sass
 			]
 		}))
 		/*.pipe(uncss({ // удаление не испульзуемых стилей
@@ -98,7 +93,7 @@ gulp.task('style:build', function () {
 			cascade: false
 		}))
 		//.pipe(cssmin()) //Сожмем
-		.pipe(sourcemaps.write())
+		//.pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.build.css)) //И в build
 		// .pipe(reload({stream: true}))
 });
@@ -117,20 +112,18 @@ gulp.task('image:build', function () {
 gulp.task('fonts:build', function() { // дабы держать традицию
 	gulp.src([
 		path.dev.fonts, 
-		path.dev.fontawesome.fonts,
-		path.dev.slick.fonts
+		path.dev.fontawesome.fonts
 	])
 	.pipe(gulp.dest(path.build.fonts))
 });
 
 gulp.task('js:build', function () {
 	gulp.src([
-			path.dev.js,
-			path.dev.slick.js
+			path.dev.js
 		])
-		.pipe(sourcemaps.init()) // Инициализируем карты
+		//.pipe(sourcemaps.init()) // Инициализируем карты
 		.pipe(uglify()) // Сожмем js
-		.pipe(sourcemaps.write()) // Пропишем карты
+		//.pipe(sourcemaps.write()) // Пропишем карты
 		.pipe(gulp.dest(path.build.js)) // готовый файл в build
 		//.pipe(reload({stream: true})) // И перезагрузим сервер
 });
