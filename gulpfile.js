@@ -2,16 +2,13 @@ var gulp = require('gulp'),
 	rigger = require('gulp-rigger'), // шаблоны html
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
-	imagemin = require('gulp-imagemin'),
-	pngquant = require('imagemin-pngquant'),
 	sourcemaps = require('gulp-sourcemaps'), // карта кодов
-	rimraf = require('rimraf'), // удаление файлов и каталогов
-	notify = require('gulp-notify'),
 	uncss = require('gulp-uncss'), // проверка css на дубли и не задействованые стили
 	concat = require('gulp-concat'), // объединение
 	uglify = require('gulp-uglify'), // минификация js
 	strip = require('gulp-strip-comments'), // удаление комментов
 	fontawesome = require('node-font-awesome'),
+	image = require('gulp-image'),
 
 	path = {
 		build: {
@@ -108,36 +105,12 @@ gulp.task('style:build', function () {
 
 gulp.task('image:build', function () {
 	gulp.src(path.dev.img) //Выберем наши картинки
-		.pipe(imagemin({ //Сожмем их
-			progressive: true,
-			interlaced: true,
-			optimizationLevel: 5,
-			svgoPlugins: [{removeViewBox: false}],
-			use: [
-				pngquant({
-					quality: '40-60', 
-					speed: 4
-				})
-			],
-			interlaced: true
-		}))
+		.pipe(image())
 		.pipe(gulp.dest(path.build.img)); //И бросим в build
 		//.pipe(reload({stream: true})
 
 	gulp.src(path.dev.image)
-		.pipe(imagemin({
-			progressive: true,
-			interlaced: true,
-			optimizationLevel: 5,
-			svgoPlugins: [{removeViewBox: false}],
-			use: [
-				pngquant({
-					quality: '40-60', 
-					speed: 4
-				})
-			],
-			interlaced: true
-		}))
+		.pipe(image())
 		.pipe(gulp.dest(path.build.image))
 });
 
@@ -180,28 +153,3 @@ gulp.task('watch', function () { // слежение за изменениями
 	});
 });
 
-gulp.task('clean', function (cb) { // очистка билда
-	rimraf(path.clean, cb);
-});
-
-
-// --save - вносит запись в package.json в dependencies
-// --save-dev - вносит запись в package.json в devDependencies (не попадают в продакшн)
-// * --save и --save-dev сделают запись, если package.json существует
-
-/* npm install 
---save-dev gulp-rigger 
---save-dev gulp-sass 
---save-dev gulp-autoprefixer 
---save-dev gulp-imagemin 
---save-dev imagemin-pngquant 
---save-dev gulp-sourcemaps  
---save-dev rimraf 
---save-dev gulp-notify 
---save-dev gulp-uncss 
---save-dev gulp-concat 
---save bootstrap-sass 
---save font-awesome 
---save-dev node-font-awesome 
---save slick-carousel 
-*/

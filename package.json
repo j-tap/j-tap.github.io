@@ -1,14 +1,8 @@
 {
   "name": "j-tap.github.io",
   "version": "1.0.0",
-  "description": "portfolio j-tap",
+  "description": "j-tap portfolio",
   "main": "gulpfile.js",
-  "dependencies": {
-    "bootstrap-sass": "^3.3.6",
-    "font-awesome": "^4.6.3",
-    "gulp": "^3.9.1",
-    "slick-carousel": "latest"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,20 +16,22 @@
     "url": "https://github.com/j-tap/j-tap.github.io/issues"
   },
   "homepage": "https://github.com/j-tap/j-tap.github.io#readme",
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-strip-comments": "^2.5.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uncss": "^1.0.6",
+    "node-font-awesome": "^1.0.2"
+  },
   "devDependencies": {
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-concat": "latest",
-    "gulp-image-resize": "^0.8.0",
-    "gulp-imagemin": "latest",
-    "gulp-notify": "latest",
-    "gulp-rigger": "latest",
-    "gulp-sass": "latest",
-    "gulp-sourcemaps": "latest",
-    "gulp-strip-comments": "^2.4.3",
-    "gulp-uglify": "latest",
-    "gulp-uncss": "latest",
-    "imagemin-pngquant": "latest",
-    "node-font-awesome": "latest",
-    "rimraf": "latest"
+    "gulp-image": "^4.3.0"
   }
 }
