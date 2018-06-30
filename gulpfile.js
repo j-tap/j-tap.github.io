@@ -110,10 +110,12 @@ gulp.task('image:build', function () {
 	gulp.src(path.dev.img) //Выберем наши картинки
 		.pipe(imagemin({ //Сожмем их
 			progressive: true,
+			interlaced: true,
+			optimizationLevel: 5,
 			svgoPlugins: [{removeViewBox: false}],
 			use: [
 				pngquant({
-					quality: '65-80', 
+					quality: '40-60', 
 					speed: 4
 				})
 			],
@@ -125,10 +127,12 @@ gulp.task('image:build', function () {
 	gulp.src(path.dev.image)
 		.pipe(imagemin({
 			progressive: true,
+			interlaced: true,
+			optimizationLevel: 5,
 			svgoPlugins: [{removeViewBox: false}],
 			use: [
 				pngquant({
-					quality: '65-80', 
+					quality: '40-60', 
 					speed: 4
 				})
 			],
@@ -143,7 +147,7 @@ gulp.task('fonts:build', function() { // дабы держать традици�
 		path.dev.fontawesome.fonts,
 		path.dev.slick.fonts
 	])
-		.pipe(gulp.dest(path.build.fonts))
+	.pipe(gulp.dest(path.build.fonts))
 });
 
 gulp.task('js:build', function () {
