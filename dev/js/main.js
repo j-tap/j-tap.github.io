@@ -157,3 +157,5 @@ function replaceAt (s, n, t) {
 		}).join(elementSeparator);
 	}
 } (jQuery));
+
+$(document).ready(function() { $('#preloader').addClass('load') });

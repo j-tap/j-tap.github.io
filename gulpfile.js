@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'), // минификация js
 	strip = require('gulp-strip-comments'), // удаление комментов
 	fontawesome = require('node-font-awesome'),
-	image = require('gulp-image'),
+	tiny = require('gulp-tinypng-nokey'),
 
 	path = {
 		build: {
@@ -100,12 +100,12 @@ gulp.task('style:build', function () {
 
 gulp.task('image:build', function () {
 	gulp.src(path.dev.img) //Выберем наши картинки
-		.pipe(image())
+		.pipe(tiny())
 		.pipe(gulp.dest(path.build.img)); //И бросим в build
 		//.pipe(reload({stream: true})
 
 	gulp.src(path.dev.image)
-		.pipe(image())
+		.pipe(tiny())
 		.pipe(gulp.dest(path.build.image))
 });
 

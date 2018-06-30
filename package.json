@@ -19,6 +19,9 @@
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
     "font-awesome": "^4.7.0",
+    "node-font-awesome": "^1.0.2"
+  },
+  "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-concat": "^2.6.1",
@@ -29,10 +32,7 @@
     "gulp-strip-comments": "^2.5.2",
     "gulp-uglify": "^3.0.0",
     "gulp-uncss": "^1.0.6",
-    "node-font-awesome": "^1.0.2"
-  },
-  "devDependencies": {
     "gulp-concat-css": "^3.1.0",
-    "gulp-image": "^4.3.0"
+    "gulp-tinypng-nokey": "^1.1.0"
   }
 }
