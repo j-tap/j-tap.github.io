@@ -158,4 +158,10 @@ function replaceAt (s, n, t) {
 	}
 } (jQuery));
 
-$(document).ready(function() { $('#preloader').addClass('load') });
+$(document).ready(function() { 
+	var ePreload = $('#preloader');
+	ePreload.addClass('load')
+	setTimeout(function () {
+		ePreload.hide()
+	}, 600) 
+});
