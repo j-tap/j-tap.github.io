@@ -2,14 +2,16 @@ var gulp = require('gulp'),
 	rigger = require('gulp-rigger'), // шаблоны html
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
+	imagemin = require('gulp-imagemin'),
+	pngquant = require('imagemin-pngquant'),
 	sourcemaps = require('gulp-sourcemaps'), // карта кодов
+	rimraf = require('rimraf'), // удаление файлов и каталогов
+	notify = require('gulp-notify'),
 	uncss = require('gulp-uncss'), // проверка css на дубли и не задействованые стили
-	concat = require('gulp-concat'), // объединение js
-	concatCss = require('gulp-concat-css'), // объединение css
+	concat = require('gulp-concat'), // объединение
 	uglify = require('gulp-uglify'), // минификация js
 	strip = require('gulp-strip-comments'), // удаление комментов
 	fontawesome = require('node-font-awesome'),
-	tiny = require('gulp-tinypng-nokey'),
 
 	path = {
 		build: {
@@ -41,7 +43,12 @@ var gulp = require('gulp'),
 			fontawesome: {
 				sass: fontawesome.scssPath,
 				fonts: fontawesome.fonts
-			}
+			},
+			slick: {
+				sass: 'node_modules/slick-carousel/slick/slick.scss',
+				js: 'node_modules/slick-carousel/slick/slick.min.js',
+				fonts: 'node_modules/slick-carousel/slick/fonts/**/*.*'
+			},
 		},
 		watch: {
 			html: 'dev/**/*.html',
@@ -75,12 +82,13 @@ gulp.task('html:build', function () {
 
 gulp.task('style:build', function () {
 	gulp.src(path.dev.style) //Выберем sass
-		//.pipe(sourcemaps.init()) //Инициализируем sourcemap
+		.pipe(sourcemaps.init()) //Инициализируем sourcemap
 		.pipe(sass({ //Скомпилируем
 			outputStyle: 'compressed', //nested
 			includePaths: [
 				path.dev.bootstrap.sass,
 				path.dev.fontawesome.sass,
+				path.dev.slick.sass
 			]
 		}))
 		/*.pipe(uncss({ // удаление не испульзуемых стилей
@@ -93,37 +101,59 @@ gulp.task('style:build', function () {
 			cascade: false
 		}))
 		//.pipe(cssmin()) //Сожмем
-		//.pipe(sourcemaps.write())
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.build.css)) //И в build
 		// .pipe(reload({stream: true}))
 });
 
 gulp.task('image:build', function () {
 	gulp.src(path.dev.img) //Выберем наши картинки
-		.pipe(tiny())
+		.pipe(imagemin({ //Сожмем их
+			progressive: true,
+			svgoPlugins: [{removeViewBox: false}],
+			use: [
+				pngquant({
+					quality: '65-80', 
+					speed: 4
+				})
+			],
+			interlaced: true
+		}))
 		.pipe(gulp.dest(path.build.img)); //И бросим в build
 		//.pipe(reload({stream: true})
 
 	gulp.src(path.dev.image)
-		.pipe(tiny())
+		.pipe(imagemin({
+			progressive: true,
+			svgoPlugins: [{removeViewBox: false}],
+			use: [
+				pngquant({
+					quality: '65-80', 
+					speed: 4
+				})
+			],
+			interlaced: true
+		}))
 		.pipe(gulp.dest(path.build.image))
 });
 
 gulp.task('fonts:build', function() { // дабы держать традицию
 	gulp.src([
 		path.dev.fonts, 
-		path.dev.fontawesome.fonts
+		path.dev.fontawesome.fonts,
+		path.dev.slick.fonts
 	])
-	.pipe(gulp.dest(path.build.fonts))
+		.pipe(gulp.dest(path.build.fonts))
 });
 
 gulp.task('js:build', function () {
 	gulp.src([
-			path.dev.js
+			path.dev.js,
+			path.dev.slick.js
 		])
-		//.pipe(sourcemaps.init()) // Инициализируем карты
+		.pipe(sourcemaps.init()) // Инициализируем карты
 		.pipe(uglify()) // Сожмем js
-		//.pipe(sourcemaps.write()) // Пропишем карты
+		.pipe(sourcemaps.write()) // Пропишем карты
 		.pipe(gulp.dest(path.build.js)) // готовый файл в build
 		//.pipe(reload({stream: true})) // И перезагрузим сервер
 });
@@ -146,3 +176,28 @@ gulp.task('watch', function () { // слежение за изменениями
 	});
 });
 
+gulp.task('clean', function (cb) { // очистка билда
+	rimraf(path.clean, cb);
+});
+
+
+// --save - вносит запись в package.json в dependencies
+// --save-dev - вносит запись в package.json в devDependencies (не попадают в продакшн)
+// * --save и --save-dev сделают запись, если package.json существует
+
+/* npm install 
+--save-dev gulp-rigger 
+--save-dev gulp-sass 
+--save-dev gulp-autoprefixer 
+--save-dev gulp-imagemin 
+--save-dev imagemin-pngquant 
+--save-dev gulp-sourcemaps  
+--save-dev rimraf 
+--save-dev gulp-notify 
+--save-dev gulp-uncss 
+--save-dev gulp-concat 
+--save bootstrap-sass 
+--save font-awesome 
+--save-dev node-font-awesome 
+--save slick-carousel 
+*/

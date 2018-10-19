@@ -1,6 +1,7 @@
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+package-lock.json
 *.db
 
 node_modules/

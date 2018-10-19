@@ -611,10 +611,22 @@ button
 	p
 		margin-top: 15px 
 		&:first-child
-			margin-top: 0  
+			margin-top: 0
+
+	ul
+		margin-top: 15px
+		list-style: square outside
+		padding-left: 20px
+		li
+			list-style: square outside
+			margin-top: 10px
 			
 .article-about
 	margin-bottom: 30px
+
+.list-note
+	font-size: 15px
+    font-style: italic
 	
 .hr
 	position: relative
@@ -783,14 +795,14 @@ button
 	background-color: #1f8eed
 
 
-@keyframes animFlicker 
+@keyframes animFlicker
 	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% 
 		opacity: 0  
 	20%, 21.999%, 63%, 63.999%, 65%, 69.999% 
 		opacity: .4 
 	
 
-@keyframes animColorBg 
+@keyframes animColorBg
 	0% 
 		background: #ff3535
 	25% 
@@ -803,7 +815,7 @@ button
 		background: #ff3535
 
 
-@keyframes animHeader 
+@keyframes animHeader
 	0% 
 		transform: scale(1, 1) 
 	50% 
@@ -812,7 +824,7 @@ button
 		transform: scale(1, 1)
 
 
-@keyframes animHeaderAddrL 
+@keyframes animHeaderAddrL
 	0% 
 		opacity: 0
 		left: 0
@@ -861,7 +873,7 @@ button
 		transform: translate3d(2px, 0, 0)
 		
 
-@keyframes animHeadTitle 
+@keyframes animHeadTitle
 	0%, 100% 
 		clip-path: polygon(calc(100% - 2px) 0, 100% 0, 100% 100%, calc(100% - 2px) 100%)
 	25% 
