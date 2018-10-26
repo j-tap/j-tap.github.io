@@ -84,6 +84,11 @@ oLng = {
 		})
 
 		localStorage.setItem('lng', lng);
+
+		var sUrl = window.location.protocol +'//'+ window.location.host + window.location.pathname;
+		sUrl = sUrl.replace(/\/$/, '');
+		if (lng != 'ru') sUrl += '?lng='+ lng;
+		window.history.pushState({}, null, sUrl);
 	}
 }
 
