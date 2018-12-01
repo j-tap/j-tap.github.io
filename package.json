@@ -6,7 +6,6 @@
   "dependencies": {
     "bootstrap-sass": "^3.3.6",
     "font-awesome": "^4.6.3",
-    "gulp": "3.9.1",
     "natives": "^1.1.6",
     "slick-carousel": "latest"
   },
