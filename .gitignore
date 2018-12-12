@@ -5,3 +5,4 @@ package-lock.json
 *.db
 
 node_modules/
+/nbproject/private/
